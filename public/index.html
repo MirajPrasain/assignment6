@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Home</title>
+  </head>
+  <body>
+    <h1>Home Page</h1>
+    <p>Hits: <span id="hits">...</span></p>
+    <a href="about.html">About</a> | <a href="contact.html">Contact</a>
+
+    <script>
+      fetch("/hits/home")
+        .then((res) => res.json())
+        .then(
+          (data) => (document.getElementById("hits").textContent = data.hits),
+        );
+    </script>
+  </body>
+</html>
